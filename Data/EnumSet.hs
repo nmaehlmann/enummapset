@@ -266,7 +266,7 @@ deleteMax :: EnumSet k -> EnumSet k
 deleteMax = EnumSet . I.deleteMax . unWrap
 {-# INLINE deleteMax #-}
 
-map :: (Enum k) => (k -> k) -> EnumSet k -> EnumSet k
+map :: (Enum k, Enum l) => (k -> l) -> EnumSet k -> EnumSet l
 map f = EnumSet . I.map (fromEnum . f . toEnum) . unWrap
 {-# INLINE map #-}
 
